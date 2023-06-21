@@ -7,7 +7,7 @@ npm i
 npm start
 ```
 
-## To test the backend
+## To test the application backend
 
 ```shell
 npm i
