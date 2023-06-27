@@ -1,7 +1,7 @@
 //Request listener
 const express = require("express");
-
 const cors = require("cors");
+const userRouter = require("../router/userRouter");
 
 const app = express();
 
@@ -36,8 +36,8 @@ app.get("/", (req, res, next) => {
   res.status(200).json({ message: "Service is up" });
 });
 
-//routers
-//app.use("/register", registrationRouter)
+//defining the routers
+app.use("/users", userRouter);
 
 //bad url or error we can handle with middleware
 app.use((req, res, next) => {
