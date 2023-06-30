@@ -2,6 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRouter = require("../router/userRouter");
+const { connect } = require("../db/db");
 
 const app = express();
 
@@ -56,5 +57,6 @@ app.use((error, req, res, next) => {
 });
 
 //database conection
+connect();
 
 module.exports = app;
