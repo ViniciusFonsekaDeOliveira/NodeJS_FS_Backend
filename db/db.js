@@ -4,6 +4,7 @@ const User = require("../models/userModel");
 
 const connect = async () => {
   try {
+    mongoose.set("strictQuery", true);
     await mongoose.connect(process.env.mongo);
     console.log("Conexão com o MongoDB estabelecida com sucesso!");
   } catch (error) {
@@ -16,7 +17,7 @@ const disconnect = async () => {
 };
 
 const findUser = async (obj) => {
-  User.findOne(obj);
+  return await User.findOne(obj).exec(); //make it truly async com .exec().
 };
 const saveUser = async (newUser) => {
   return await newUser.save();
